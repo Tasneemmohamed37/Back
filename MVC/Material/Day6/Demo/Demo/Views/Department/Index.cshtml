@@ -1,0 +1,22 @@
+﻿@model List<Department>
+@{
+    Layout = "_AdvLayout";
+}
+
+
+<a href="/Department/New" class="btn btn-success">New </a>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    @foreach (Department item in Model)
+    {
+
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+        </tr>
+    }
+</table>

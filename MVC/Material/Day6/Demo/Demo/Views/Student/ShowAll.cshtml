@@ -1,0 +1,19 @@
+﻿<!--Lossly type view (dynamic Model) -->
+<!--Strong Type View-->
+@model List<Student>
+
+
+
+<!--Runtime -->
+<table class="table table-bordered table-hover">
+    @foreach (Student item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.ImageUrl</td>
+            <td><img src="~/Images/@item.ImageUrl" style="width:100px"/></td>
+        </tr>
+    }
+    
+</table>

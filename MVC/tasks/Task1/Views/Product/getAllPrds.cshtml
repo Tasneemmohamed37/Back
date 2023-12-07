@@ -1,0 +1,12 @@
+﻿<table class="table table-bordered table-hover">
+    @foreach(Product prd in Model)
+    {
+        <tr>
+            <td>@prd.Id</td>
+            <td>@prd.Name</td>
+            <td>@prd.Price</td>
+            <td>@prd.Description</td>
+            <td><img src="~/Images/@prd.ImageURL"/></td>
+        </tr>
+    }
+</table>

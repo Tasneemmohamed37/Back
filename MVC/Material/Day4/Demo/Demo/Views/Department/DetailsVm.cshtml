@@ -1,0 +1,21 @@
+﻿<!--Strong typpe |Lossly type-->
+
+@model DepartmentWithBranchesColorTemDateViewModel
+
+
+@{
+    ViewData["Title"] = "DetailsVm";
+}
+
+<h1>DetailsVm</h1>
+
+<h1 style="color:@Model.Color">@Model.DeptName</h1>
+<h2>@Model.Date</h2>
+<select class="form-control">
+    @foreach (var item in Model.Branches)
+    {
+        <option>@item</option>
+    }
+</select>
+
+<h2>@(Model.Temp+10)</h2>

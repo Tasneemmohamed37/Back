@@ -1,0 +1,50 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "New";
+    SelectList deptOptions = new SelectList(ViewBag.deptList ,"Id","Name");
+}
+
+<h1>New</h1>
+@Html.AntiForgeryToken()
+<form method="post" asp-action="New">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Address"></label>
+        <input class="form-control" asp-for="Address" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Salary"></label>
+        <input class="form-control" asp-for="Salary" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="ImageURL"></label>
+        <input class="form-control" asp-for="ImageURL" />
+        <span asp-validation-for="ImageURL" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Age"></label>
+        <input class="form-control" asp-for="Age" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="DeptId"></label>
+        <select class="form-control" asp-for="DeptId" asp-items="deptOptions">
+            <option value="0">--Select Department--</option>
+        </select>
+        <span asp-validation-for="DeptId" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Create" />
+</form>
+<a asp-action="Index">Back To List</a>
+@section Scripts{
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

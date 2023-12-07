@@ -1,0 +1,54 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "ADD Instructor";
+}
+
+<h1>ADD New Instructor</h1>
+
+<form method="post" action="/Instructor/SaveData">
+    <div>
+        <lable>Name</lable>
+        <input class="form-control" type="text" id="Name" name="Name" value="@Model?.Name" />
+    </div>
+
+    <div>
+        <lable>Image</lable>
+        <input class="form-control" type="text" id="Image" name="Image" value="@Model?.Image" />
+    </div>
+
+    <div>
+        <lable>Salary</lable>
+        <input class="form-control" type="number" id="Salary" name="Salary" value="@Model?.Salary" />
+    </div>
+
+    <div>
+        <lable>Address</lable>
+        <input class="form-control" type="text" id="Address" name="Address" value="@Model?.Address" />
+    </div>
+
+    <div>
+        <lable>Department</lable>
+        <select class="form-control" name="Dept_Id" id="Dept_Id">
+            @foreach (Department d in ViewBag.deptList)
+            {
+                <option value="@d.Id">@d.Name</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <lable>Course</lable>
+        <select class="form-control" name="Crs_Id" id="Crs_Id">
+            @foreach (Course c in ViewBag.CrsList)
+            {
+                <option value="@c.Id">@c.Name</option>
+            }
+        </select>
+    </div>
+
+    <br />
+    <input class="btn btn-success" type="submit" value="Save" />
+
+</form>
+<br />
+<a href="/Instructor/index" class="btn btn-success">back to Home</a>

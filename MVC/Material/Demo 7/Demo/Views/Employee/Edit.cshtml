@@ -1,0 +1,89 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Edit";
+    //Dictionary<string, string> data = new Dictionary<string, string>();
+    //data["name"] = "ahed";
+    //data["addree"] = "alex";
+}
+
+<h1>Edit</h1>
+
+<form method="post" action="/Employee/SaveEdit/@Model.Id">
+    <div>
+        <lable>Name</lable>
+        <input value="@Model.Name" name="Name" id="Name" type="text" class="form-control" />
+    </div>
+    <div>
+        @*<lable>Address</lable>*@
+        @*<input value="@Model.Address" name="Address" id="Address" type="text" class="form-control" />*@
+        @*@Html.LabelFor(e=>e.Address)
+        @Html.TextBoxFor(e=>e.Address,"",new{style="Color:red",@class="form-control"})*@
+        <label asp-for="Address"></label>
+        <input class="form-control" asp-for="Address" />
+    </div>
+    <div>
+        <lable>Salary</lable>
+        <input value="@Model.Salary" name="Salary" id="Salary" type="number" class="form-control" />
+    </div>
+    <div>
+        <lable>ImageUrl</lable>
+        <input value="@Model.ImageUrl" name="ImageUrl" id="ImageUrl" type="text" class="form-control" />
+    </div>
+    <div>
+        <lable>Age</lable>
+        <input value="@Model.Age" name="Age" id="Age" type="number" class="form-control" />
+    </div>
+    <div>
+        <lable>DEpartment</lable>
+        @*<input value="@Model.DeptId" name="DeptId" id="DeptId" type="number" class="form-control" />*@
+        <select  class="form-control" name="DeptId" id="DeptId">
+            @foreach (Department DeptItem in ViewBag.deptList)
+            {
+                if (Model.DeptId == DeptItem.Id){
+                    <option value="@DeptItem.Id" selected>@DeptItem.Name</option>
+                }else{
+                    <option value="@DeptItem.Id" >@DeptItem.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <input  type="submit" class="btn btn-primary" value="Save" />
+</form>
+
+<a href="/Employee/Index" >Back To List</a>
+<br />
+<!--HTML Helper C# ==> Html-->
+<!--//Department/Details?deptId=1-->
+@Html.ActionLink("Dept DEtails Html Helper","Details","Department"
+               ,new{deptId=Model.DeptId},new{@class="btn btn-success"})
+               <br />
+<a class="btn btn-primary" 
+asp-action="Details" asp-controller="Department"
+asp-route-deptId="@Model.DeptId">Dept DEtails using Tag helper</a>
+<br />
+<a href="/Department/Index">Back toList Html Helper</a>
+<br />
+@*<a asp-action="index" asp-all-route-data="data" >Index</a>
+*@
+
+
+
+
+
+
+
+@*
+
+<select name="deptID">
+    <option value="1">SD</option>
+    <option value="2" selected>Full Stack</option>
+</select>
+
+deptId=1*@
+
+
+
+
+
+
+

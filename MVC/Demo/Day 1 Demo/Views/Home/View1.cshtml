@@ -1,0 +1,44 @@
+﻿<h1>hello world from view </h1>
+<!-- can write HTML | CSS | Js  <= C# (render) -->
+
+<style>
+    h1 {
+        color: red;
+        background-color: yellow;
+    }
+</style>
+
+<script> 
+    console.log("helooooo");
+</script>
+
+<!-- to write c# must use Rezor syntax (razor engine)-->
+
+<!-- 1 way : block of code -->
+<!--start block of code-->
+@{
+    int x = 5;
+    int y =  9;
+}
+<!--end block of code-->
+
+<!--2 way inline exepression  [replace varible by his value] -->
+<h2>@(x+y)</h2>
+
+
+
+<!--condition statement -->
+@if(x > y)
+{
+    <h2> x = @x greater than  y = @y </h2>
+}
+else
+{
+    <h2>x = @x less than  y = @y</h2>
+}
+
+<!--iteration -->
+@for(int i =0 ; i<10 ; i++)
+{
+    <li>@i</li>
+}

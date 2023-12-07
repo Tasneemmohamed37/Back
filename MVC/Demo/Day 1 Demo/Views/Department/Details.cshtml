@@ -1,0 +1,29 @@
+﻿@model Department
+
+<!-- prob of viewdata == magic string / type casting-->
+
+<h1 style="color:@ViewData["color"]"> Department : @Model.Name </h1>
+
+<h1>Which has Maneger Name : @Model.ManegerName</h1>
+
+<h2>Current Date : @ViewData["date"]</h2>
+<h2>Current Date : @ViewBag.date</h2>
+
+
+
+
+<h2>tempreture : @( int.Parse(ViewData["temp"].ToString()) +10)</h2>
+<h2>tempreture : @( ViewBag.temp +10) </h2>
+
+<select>
+    @foreach (string b in (List<string>)ViewData["branchs"])
+    {
+        <option>@b</option>
+    }
+</select>
+<select>
+    @foreach (string b in ViewBag.branchs)
+    {
+        <option>@b</option>
+    }
+</select>

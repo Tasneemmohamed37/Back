@@ -1,0 +1,14 @@
+﻿
+@inject Demo.Repository.IDepartmentRepository DepREpo
+
+<!--inject-->
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h2>Service ID FRom Controller </h2>
+<h3>@ViewBag.ID</h3>
+<h2>Service ID FRom View</h2>
+<h3>@DepREpo.ID</h3>

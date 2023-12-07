@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Instructor Details";
+}
+@model Instructor
+<h1>Details</h1>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Salary</th>
+        <th>Address</th>
+        <th>Dept_Id</th>
+        <th>Crs_Id</th>
+    </tr>
+    
+    
+        <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Name</td>
+        <td><img src="~/Images/@Model.Image" /></td>
+        <td>@Model.Salary</td>
+        <td>@Model.Address</td>
+        <td>@Model.Dept_Id</td>
+        <td>@Model.Crs_Id</td>
+        </tr>
+
+</table>

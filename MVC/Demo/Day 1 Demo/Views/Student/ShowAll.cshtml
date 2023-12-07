@@ -1,0 +1,19 @@
+﻿<!-- this view take parameter List<Student> but name it here === model -->
+<!-- this model data typr is == dynamic which casted in runtime-->
+
+<!-- Strong type view -->
+
+@model List<Student>
+
+<table class="table table-bordered table-hover">
+    @foreach(Student std in Model)
+    {
+        <tr>
+        <td>@std.Id</td>
+        <td>@std.Name</td>
+         <td><img src="~/Images/@std.ImageURL"/></td>
+        </tr>
+    }
+
+
+</table>

@@ -1,0 +1,36 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Create New Course";
+    SelectList deptOptions = new SelectList(ViewBag.deptList, "Id", "Name");
+}
+<h2>New</h2>
+@Html.AntiForgeryToken()
+<form method="post" asp-action="Create">
+    <div>
+    <label asp-for="Name">Name</label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Degree">Degree</label>
+        <input asp-for="Degree" class="form-control" />
+        <span asp-validation-for="Degree" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="MinDegree">MinDegree</label>
+        <input asp-for="MinDegree" class="form-control" />
+        <span asp-validation-for="MinDegree" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Dept_Id"></label>
+        <select class="form-control" asp-for="Dept_Id" asp-items="deptOptions"></select>
+        <span asp-validation-for="Dept_Id" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Create" />
+</form>
+<a asp-action="Index">Back To List</a>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
